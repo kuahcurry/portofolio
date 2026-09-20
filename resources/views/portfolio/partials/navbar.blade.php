@@ -18,7 +18,6 @@
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-[#57534E]">
-                <a href="#bio" class="hover:text-[#1C1917] transition-colors">{{ __('portfolio.nav_bio') }}</a>
                 <a href="#education" class="hover:text-[#1C1917] transition-colors">{{ __('portfolio.nav_education') }}</a>
                 <a href="#experience" class="hover:text-[#1C1917] transition-colors">{{ __('portfolio.nav_experience') }}</a>
                 <a href="#projects" class="hover:text-[#1C1917] transition-colors">{{ __('portfolio.nav_projects') }}</a>
@@ -30,12 +29,12 @@
             <div class="hidden sm:flex items-center space-x-3 ml-4 pl-4 border-l border-[#E8E5DC]">
                 <!-- Language Toggle -->
                 <div class="flex items-center bg-[#F4F2EB] border border-[#E8E5DC] rounded-lg p-0.5 text-xs font-mono shadow-2xs">
-                    <a href="{{ route('locale.switch', 'en') }}" 
+                    <a href="{{ route('locale.switch', 'en') }}"
                        class="px-2 py-1 rounded transition {{ app()->getLocale() === 'en' ? 'bg-[#1C1917] text-[#FAF9F6] font-semibold' : 'text-[#78716C] hover:text-[#1C1917]' }}"
                        title="Switch to English">
                         EN
                     </a>
-                    <a href="{{ route('locale.switch', 'id') }}" 
+                    <a href="{{ route('locale.switch', 'id') }}"
                        class="px-2 py-1 rounded transition {{ app()->getLocale() === 'id' ? 'bg-[#1C1917] text-[#FAF9F6] font-semibold' : 'text-[#78716C] hover:text-[#1C1917]' }}"
                        title="Ganti ke Bahasa Indonesia">
                         ID
@@ -53,16 +52,16 @@
             <!-- Mobile Hamburger Toggle & Mobile Language Switch -->
             <div class="md:hidden flex items-center space-x-2">
                 <div class="flex items-center bg-[#F4F2EB] border border-[#E8E5DC] rounded-lg p-0.5 text-xs font-mono">
-                    <a href="{{ route('locale.switch', 'en') }}" 
+                    <a href="{{ route('locale.switch', 'en') }}"
                        class="px-1.5 py-0.5 rounded {{ app()->getLocale() === 'en' ? 'bg-[#1C1917] text-[#FAF9F6] font-semibold' : 'text-[#78716C]' }}">
                         EN
                     </a>
-                    <a href="{{ route('locale.switch', 'id') }}" 
+                    <a href="{{ route('locale.switch', 'id') }}"
                        class="px-1.5 py-0.5 rounded {{ app()->getLocale() === 'id' ? 'bg-[#1C1917] text-[#FAF9F6] font-semibold' : 'text-[#78716C]' }}">
                         ID
                     </a>
                 </div>
-                
+
                 <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="p-2 rounded-md text-[#1C1917] hover:bg-[#E8E5DC]/50 focus:outline-none" aria-label="Toggle navigation menu">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
@@ -71,13 +70,12 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-[#E8E5DC] py-4 px-3 space-y-2 bg-[#FAF9F6]">
-            <a href="#bio" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 text-sm font-medium text-[#57534E] hover:text-[#1C1917] hover:bg-[#F4F2EB] rounded-md">{{ __('portfolio.nav_bio') }}</a>
             <a href="#education" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 text-sm font-medium text-[#57534E] hover:text-[#1C1917] hover:bg-[#F4F2EB] rounded-md">{{ __('portfolio.nav_education') }}</a>
             <a href="#experience" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 text-sm font-medium text-[#57534E] hover:text-[#1C1917] hover:bg-[#F4F2EB] rounded-md">{{ __('portfolio.nav_experience') }}</a>
             <a href="#projects" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 text-sm font-medium text-[#57534E] hover:text-[#1C1917] hover:bg-[#F4F2EB] rounded-md">{{ __('portfolio.nav_projects') }}</a>
             <a href="#skills" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 text-sm font-medium text-[#57534E] hover:text-[#1C1917] hover:bg-[#F4F2EB] rounded-md">{{ __('portfolio.nav_skills') }}</a>
             <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 text-sm font-medium text-[#57534E] hover:text-[#1C1917] hover:bg-[#F4F2EB] rounded-md">{{ __('portfolio.nav_contact') }}</a>
-            
+
             <div class="pt-3 pb-2 px-1">
                 <a href="#work-together" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block w-full">
                     <md-filled-button style="width: 100%; --md-filled-button-container-color: #1C1917; --md-filled-button-label-text-color: #FAF9F6; height: 44px;">
