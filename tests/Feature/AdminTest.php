@@ -97,6 +97,25 @@ class AdminTest extends TestCase
         ]);
     }
 
+    public function test_admin_can_update_account_credentials(): void
+    {
+        $response = $this->actingAs($this->admin)->put('/manage/profile/account', [
+            'name' => 'New Admin Name',
+            'email' => 'newadmin@domain.com',
+            'current_password' => 'admin12345',
+            'new_password' => 'newpassword123',
+            'new_password_confirmation' => 'newpassword123',
+        ]);
+
+        $response->assertRedirect(route('admin.profile.edit'));
+        $response->assertSessionHas('account_success');
+
+        $this->admin->refresh();
+        $this->assertEquals('New Admin Name', $this->admin->name);
+        $this->assertEquals('newadmin@domain.com', $this->admin->email);
+        $this->assertTrue(\Illuminate\Support\Facades\Hash::check('newpassword123', $this->admin->password));
+    }
+
     public function test_admin_can_create_project(): void
     {
         $response = $this->actingAs($this->admin)->post('/manage/projects', [

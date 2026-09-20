@@ -33,6 +33,7 @@ $registerAdminRoutes = function (bool $named = true) {
         $dashboard = Route::get('/', [DashboardController::class, 'index']);
         $profileEdit = Route::get('/profile', [AdminProfileController::class, 'edit']);
         $profileUpdate = Route::put('/profile', [AdminProfileController::class, 'update']);
+        $accountUpdate = Route::put('/profile/account', [AdminProfileController::class, 'updateAccount']);
 
         $projects = Route::resource('projects', ProjectController::class);
         $experiences = Route::resource('experiences', ExperienceController::class);
@@ -48,6 +49,7 @@ $registerAdminRoutes = function (bool $named = true) {
             $dashboard->name('admin.dashboard');
             $profileEdit->name('admin.profile.edit');
             $profileUpdate->name('admin.profile.update');
+            $accountUpdate->name('admin.account.update');
             $projects->names('admin.projects');
             $experiences->names('admin.experiences');
             $education->names('admin.education');

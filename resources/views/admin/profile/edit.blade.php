@@ -152,5 +152,74 @@
         </div>
     </form>
 
+    <!-- Administrator Account & Security Credentials -->
+    <div class="bg-white rounded-2xl border border-[#E8E5DC] p-6 sm:p-10 space-y-6 shadow-xs">
+        <div class="border-b border-[#F4F2EB] pb-4">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-xl text-[#1C1917]">lock</span>
+                <h3 class="font-serif text-xl font-bold text-[#1C1917]">Admin Account &amp; Security Credentials</h3>
+            </div>
+            <p class="text-xs text-[#78716C] font-mono mt-1">
+                Change your login email address and authentication password directly from this dashboard.
+            </p>
+        </div>
+
+        @if(session('account_success'))
+            <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined text-emerald-600 text-lg">check_circle</span>
+                <span>{{ session('account_success') }}</span>
+            </div>
+        @endif
+
+        <form action="{{ route('admin.account.update') }}" method="POST" class="space-y-6">
+            @csrf
+            @method('PUT')
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5 font-semibold">Administrator Name *</label>
+                    <input type="text" name="name" value="{{ old('name', auth()->user()->name) }}" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#FAF9F6] border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                    @error('name') <p class="text-xs text-rose-600 mt-1">{{ $message }}</p> @enderror
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5 font-semibold">Login Email Address *</label>
+                    <input type="email" name="email" value="{{ old('email', auth()->user()->email) }}" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#FAF9F6] border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                    @error('email') <p class="text-xs text-rose-600 mt-1">{{ $message }}</p> @enderror
+                </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#FAF9F6] border border-[#E8E5DC] space-y-4">
+                <p class="text-xs font-mono text-[#78716C] uppercase tracking-wider font-semibold">Password Change (leave blank if keeping current password)</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5">Current Password</label>
+                        <input type="password" name="current_password" placeholder="••••••••" class="w-full px-3 py-2 rounded-lg bg-white border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                        @error('current_password') <p class="text-xs text-rose-600 mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5">New Password</label>
+                        <input type="password" name="new_password" placeholder="Min. 8 characters" class="w-full px-3 py-2 rounded-lg bg-white border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                        @error('new_password') <p class="text-xs text-rose-600 mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5">Confirm New Password</label>
+                        <input type="password" name="new_password_confirmation" placeholder="Repeat new password" class="w-full px-3 py-2 rounded-lg bg-white border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <button type="submit" class="px-6 py-3 rounded-lg bg-[#1C1917] text-[#FAF9F6] font-medium text-sm hover:bg-[#322F2D] transition shadow-xs flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">security</span>
+                    <span>Update Login Credentials</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
 </div>
 @endsection
