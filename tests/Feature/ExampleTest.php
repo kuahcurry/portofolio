@@ -27,41 +27,37 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
 
         // 1. Picture + Bio
-        $response->assertSee('Alexander Vance');
-        $response->assertSee('Senior Full-Stack Engineer');
-        $response->assertSee('Crafting enduring, high-performance web systems');
+        $response->assertSee('Aqief Hakimi');
+        $response->assertSee('Backend Engineer &amp; Cloud Computing Specialist', false);
+        $response->assertSee('Architecting dependable APIs, scalable cloud systems');
 
         // 2. Education
-        $response->assertSee('University of California, Berkeley');
-        $response->assertSee('Bachelor of Science in Computer Science');
+        $response->assertSee('Universitas Ahmad Dahlan');
+        $response->assertSee('Bachelor of Computer Science (S.Kom.)');
 
         // 3. Experience
-        $response->assertSee('Lumina Cloud Infrastructure');
-        $response->assertSee('Lead Full-Stack Engineer');
+        $response->assertSee('Bangkit Academy');
+        $response->assertSee('PT. Farma Global Teknologi');
 
         // 4. Projects (including repo and demo links)
         $response->assertSee('Aura Task Orchestrator');
         $response->assertSee('Chronicle Docs Engine');
         $response->assertSee('Source Repo');
         $response->assertSee('Live Demo');
-        $response->assertSee('https://github.com/alexandervance-dev/aura-orchestrator');
 
         // 5. Programming Languages, Frameworks & Soft Skills
         $response->assertSee('PHP 8.x');
         $response->assertSee('Laravel Framework');
-        $response->assertSee('Material Web Components (M3)');
-        $response->assertSee('Tailwind CSS');
-        $response->assertSee('Distributed Systems Thinking');
-        $response->assertSee('Engineering Leadership &amp; Mentorship', false);
+        $response->assertSee('Google Cloud Platform (GCP)');
+        $response->assertSee('Academic Leadership &amp; Assistant Coordination', false);
 
         // Certificates & Credentials
         $response->assertSee('View Experience Credential');
-        $response->assertSee('Verified Project Credential / Award');
 
         // 6. Contact Person
         $response->assertSee('Contact Person &amp; Details', false);
-        $response->assertSee('alexander.vance.dev@gmail.com');
-        $response->assertSee('+1 (415) 890-4321');
+        $response->assertSee('aqefhakimi32@gmail.com');
+        $response->assertSee('+62 855-1655-7899');
 
         // 7. Invitation to work together
         $response->assertSee('Let’s Build Something Enduring Together', false);
