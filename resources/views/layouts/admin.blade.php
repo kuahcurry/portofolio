@@ -7,6 +7,11 @@
 
     <title>@yield('title', 'Manage Console') — Portfolio Administration</title>
 
+    <!-- Favicon & Touch Icon: Authentic New York Times Initial 'A' Monogram -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="alternate icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.svg') }}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
