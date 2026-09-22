@@ -60,12 +60,10 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-24 h-1.5 bg-[#F4F2EB] rounded-full overflow-hidden">
-                                        <div class="h-full bg-[#1C1917] rounded-full" style="width: {{ $skill->proficiency }}%;"></div>
-                                    </div>
-                                    <span class="text-xs font-mono text-[#78716C]">{{ $skill->proficiency }}%</span>
-                                </div>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border {{ $skill->level_badge_class }}">
+                                    <span class="w-1.5 h-1.5 rounded-full {{ $skill->level_dot_class }}"></span>
+                                    <span>{{ $skill->level_label }}</span>
+                                </span>
                             </td>
                             <td class="px-6 py-4 text-xs font-mono text-[#78716C]">
                                 {{ $skill->icon ?? 'N/A' }}

@@ -61,8 +61,13 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5 font-semibold">Proficiency Percentage (1 - 100) *</label>
-                    <input type="number" name="proficiency" value="{{ old('proficiency', 90) }}" min="1" max="100" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#FAF9F6] border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                    <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5 font-semibold">Proficiency Level *</label>
+                    <select name="proficiency" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#FAF9F6] border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                        <option value="expert" {{ old('proficiency', 'expert') === 'expert' ? 'selected' : '' }}>Expert / Pakar (Mastery &amp; architectural authority)</option>
+                        <option value="advanced" {{ old('proficiency') === 'advanced' ? 'selected' : '' }}>Advanced / Tingkat Lanjut (Extensive production experience)</option>
+                        <option value="intermediate" {{ old('proficiency') === 'intermediate' ? 'selected' : '' }}>Intermediate / Menengah (Solid working competency)</option>
+                        <option value="beginner" {{ old('proficiency') === 'beginner' ? 'selected' : '' }}>Beginner / Pemula (Foundational understanding)</option>
+                    </select>
                 </div>
             </div>
         </div>

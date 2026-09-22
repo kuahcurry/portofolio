@@ -39,18 +39,25 @@
                         </div>
                     </div>
 
-                    <div class="space-y-5">
+                    <div class="space-y-2">
                         @foreach($groupedSkills['languages'] as $skill)
-                            <div>
-                                <div class="flex items-center justify-between text-sm mb-1.5">
-                                    <span class="font-medium text-[#1C1917] flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-sm text-[#8F6A3B]">{{ $skill->icon ?? 'terminal' }}</span>
-                                        <span>{{ $skill->trans('name') }}</span>
+                            <div class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#FAF9F6] border border-transparent hover:border-[#E8E5DC] transition-all">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="w-8 h-8 rounded-lg bg-[#FAF9F6] border border-[#E8E5DC] flex items-center justify-center text-[#8F6A3B] shrink-0">
+                                        <span class="material-symbols-outlined text-base">{{ $skill->icon ?? 'terminal' }}</span>
                                     </span>
-                                    <span class="font-mono text-xs text-[#78716C]">{{ $skill->proficiency }}%</span>
+                                    <div class="min-w-0">
+                                        <span class="font-medium text-[#1C1917] text-sm block truncate">{{ $skill->trans('name') }}</span>
+                                        @if($skill->trans('description'))
+                                            <span class="text-xs text-[#78716C] block truncate">{{ $skill->trans('description') }}</span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="w-full h-1.5 bg-[#F4F2EB] rounded-full overflow-hidden">
-                                    <div class="h-full bg-[#1C1917] rounded-full transition-all duration-700" style="width: {{ $skill->proficiency }}%;"></div>
+                                <div class="shrink-0 pl-3">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border {{ $skill->level_badge_class }}">
+                                        <span class="w-1.5 h-1.5 rounded-full {{ $skill->level_dot_class }}"></span>
+                                        <span>{{ $skill->level_label }}</span>
+                                    </span>
                                 </div>
                             </div>
                         @endforeach
@@ -71,18 +78,25 @@
                         </div>
                     </div>
 
-                    <div class="space-y-5">
+                    <div class="space-y-2">
                         @foreach($groupedSkills['frameworks'] as $skill)
-                            <div>
-                                <div class="flex items-center justify-between text-sm mb-1.5">
-                                    <span class="font-medium text-[#1C1917] flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-sm text-[#8F6A3B]">{{ $skill->icon ?? 'layers' }}</span>
-                                        <span>{{ $skill->trans('name') }}</span>
+                            <div class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#FAF9F6] border border-transparent hover:border-[#E8E5DC] transition-all">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="w-8 h-8 rounded-lg bg-[#FAF9F6] border border-[#E8E5DC] flex items-center justify-center text-[#8F6A3B] shrink-0">
+                                        <span class="material-symbols-outlined text-base">{{ $skill->icon ?? 'layers' }}</span>
                                     </span>
-                                    <span class="font-mono text-xs text-[#78716C]">{{ $skill->proficiency }}%</span>
+                                    <div class="min-w-0">
+                                        <span class="font-medium text-[#1C1917] text-sm block truncate">{{ $skill->trans('name') }}</span>
+                                        @if($skill->trans('description'))
+                                            <span class="text-xs text-[#78716C] block truncate">{{ $skill->trans('description') }}</span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="w-full h-1.5 bg-[#F4F2EB] rounded-full overflow-hidden">
-                                    <div class="h-full bg-[#8F6A3B] rounded-full transition-all duration-700" style="width: {{ $skill->proficiency }}%;"></div>
+                                <div class="shrink-0 pl-3">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border {{ $skill->level_badge_class }}">
+                                        <span class="w-1.5 h-1.5 rounded-full {{ $skill->level_dot_class }}"></span>
+                                        <span>{{ $skill->level_label }}</span>
+                                    </span>
                                 </div>
                             </div>
                         @endforeach
@@ -103,18 +117,25 @@
                         </div>
                     </div>
 
-                    <div class="space-y-5">
+                    <div class="space-y-2">
                         @foreach($groupedSkills['databases'] as $skill)
-                            <div>
-                                <div class="flex items-center justify-between text-sm mb-1.5">
-                                    <span class="font-medium text-[#1C1917] flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-sm text-[#8F6A3B]">{{ $skill->icon ?? 'storage' }}</span>
-                                        <span>{{ $skill->trans('name') }}</span>
+                            <div class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#FAF9F6] border border-transparent hover:border-[#E8E5DC] transition-all">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="w-8 h-8 rounded-lg bg-[#FAF9F6] border border-[#E8E5DC] flex items-center justify-center text-[#8F6A3B] shrink-0">
+                                        <span class="material-symbols-outlined text-base">{{ $skill->icon ?? 'storage' }}</span>
                                     </span>
-                                    <span class="font-mono text-xs text-[#78716C]">{{ $skill->proficiency }}%</span>
+                                    <div class="min-w-0">
+                                        <span class="font-medium text-[#1C1917] text-sm block truncate">{{ $skill->trans('name') }}</span>
+                                        @if($skill->trans('description'))
+                                            <span class="text-xs text-[#78716C] block truncate">{{ $skill->trans('description') }}</span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="w-full h-1.5 bg-[#F4F2EB] rounded-full overflow-hidden">
-                                    <div class="h-full bg-[#1C1917] rounded-full transition-all duration-700" style="width: {{ $skill->proficiency }}%;"></div>
+                                <div class="shrink-0 pl-3">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border {{ $skill->level_badge_class }}">
+                                        <span class="w-1.5 h-1.5 rounded-full {{ $skill->level_dot_class }}"></span>
+                                        <span>{{ $skill->level_label }}</span>
+                                    </span>
                                 </div>
                             </div>
                         @endforeach
@@ -135,18 +156,25 @@
                         </div>
                     </div>
 
-                    <div class="space-y-5">
+                    <div class="space-y-2">
                         @foreach($groupedSkills['tools'] as $skill)
-                            <div>
-                                <div class="flex items-center justify-between text-sm mb-1.5">
-                                    <span class="font-medium text-[#1C1917] flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-sm text-[#8F6A3B]">{{ $skill->icon ?? 'architecture' }}</span>
-                                        <span>{{ $skill->trans('name') }}</span>
+                            <div class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#FAF9F6] border border-transparent hover:border-[#E8E5DC] transition-all">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="w-8 h-8 rounded-lg bg-[#FAF9F6] border border-[#E8E5DC] flex items-center justify-center text-[#8F6A3B] shrink-0">
+                                        <span class="material-symbols-outlined text-base">{{ $skill->icon ?? 'architecture' }}</span>
                                     </span>
-                                    <span class="font-mono text-xs text-[#78716C]">{{ $skill->proficiency }}%</span>
+                                    <div class="min-w-0">
+                                        <span class="font-medium text-[#1C1917] text-sm block truncate">{{ $skill->trans('name') }}</span>
+                                        @if($skill->trans('description'))
+                                            <span class="text-xs text-[#78716C] block truncate">{{ $skill->trans('description') }}</span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="w-full h-1.5 bg-[#F4F2EB] rounded-full overflow-hidden">
-                                    <div class="h-full bg-[#8F6A3B] rounded-full transition-all duration-700" style="width: {{ $skill->proficiency }}%;"></div>
+                                <div class="shrink-0 pl-3">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border {{ $skill->level_badge_class }}">
+                                        <span class="w-1.5 h-1.5 rounded-full {{ $skill->level_dot_class }}"></span>
+                                        <span>{{ $skill->level_label }}</span>
+                                    </span>
                                 </div>
                             </div>
                         @endforeach
@@ -171,8 +199,9 @@
                                 <span class="w-10 h-10 rounded-lg bg-[#FAF9F6] border border-[#E8E5DC] flex items-center justify-center text-[#8F6A3B]">
                                     <span class="material-symbols-outlined text-xl">{{ $soft->icon ?? 'psychology' }}</span>
                                 </span>
-                                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#FAF9F6] border border-[#E8E5DC] text-[#78716C]">
-                                    {{ $soft->proficiency }}% {{ app()->getLocale() === 'id' ? 'Kapabilitas' : 'Capability' }}
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border {{ $soft->level_badge_class }}">
+                                    <span class="w-1.5 h-1.5 rounded-full {{ $soft->level_dot_class }}"></span>
+                                    <span>{{ $soft->level_label }}</span>
                                 </span>
                             </div>
 

@@ -97,6 +97,7 @@
                                 alt="{{ $profile->name ?? 'Portrait' }}" 
                                 class="w-full h-full object-cover object-center filter grayscale contrast-[1.05] group-hover:grayscale-0 transition-all duration-700 ease-out"
                                 loading="eager"
+                                referrerpolicy="no-referrer"
                             >
                             <div class="absolute bottom-3 right-3 bg-[#1C1917]/90 text-[#FAF9F6] text-xs font-serif px-2.5 py-1 rounded-md backdrop-blur-xs tracking-wider border border-white/10">
                                 EST. {{ 2026 - ($profile->years_of_experience ?? 6) }}

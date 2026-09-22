@@ -195,7 +195,7 @@ class AdminTest extends TestCase
         $response = $this->actingAs($this->admin)->post('/manage/skills', [
             'name' => 'Rust',
             'category' => 'programming_language',
-            'proficiency' => 85,
+            'proficiency' => 'advanced',
             'icon' => 'memory',
             'sort_order' => 1,
         ]);
@@ -204,7 +204,26 @@ class AdminTest extends TestCase
         $this->assertDatabaseHas('skills', [
             'name' => 'Rust',
             'category' => 'programming_language',
+            'proficiency' => 'advanced',
         ]);
+    }
+
+    public function test_profile_avatar_converts_google_drive_share_link(): void
+    {
+        $response = $this->actingAs($this->admin)->put('/manage/profile', [
+            'name' => 'Alexander Vance',
+            'title' => 'Chief Software Architect',
+            'tagline' => 'Crafting enduring systems.',
+            'bio' => 'Updated biography text here.',
+            'email' => 'alexander@example.com',
+            'avatar' => 'https://drive.google.com/file/d/1XyZ_987abc123DEF/view?usp=sharing',
+            'availability_status' => 'Available immediately',
+            'years_of_experience' => 8,
+        ]);
+
+        $response->assertRedirect(route('admin.profile.edit'));
+        $profile = \App\Models\Profile::first();
+        $this->assertEquals('https://lh3.googleusercontent.com/d/1XyZ_987abc123DEF', $profile->avatar);
     }
 
     public function test_admin_can_view_and_delete_inquiry(): void

@@ -23,12 +23,17 @@ class SkillController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        if (is_numeric($request->input('proficiency'))) {
+            $num = (int) $request->input('proficiency');
+            $request->merge(['proficiency' => $num >= 90 ? 'expert' : ($num >= 80 ? 'advanced' : ($num >= 60 ? 'intermediate' : 'beginner'))]);
+        }
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'name_id' => 'nullable|string|max:255',
             'type' => 'nullable|in:technical,soft',
             'category' => 'required|string|max:100',
-            'proficiency' => 'required|integer|min:1|max:100',
+            'proficiency' => 'required|string|in:expert,advanced,intermediate,beginner',
             'description' => 'nullable|string',
             'description_id' => 'nullable|string',
             'icon' => 'nullable|string|max:100',
@@ -51,12 +56,17 @@ class SkillController extends Controller
 
     public function update(Request $request, Skill $skill): RedirectResponse
     {
+        if (is_numeric($request->input('proficiency'))) {
+            $num = (int) $request->input('proficiency');
+            $request->merge(['proficiency' => $num >= 90 ? 'expert' : ($num >= 80 ? 'advanced' : ($num >= 60 ? 'intermediate' : 'beginner'))]);
+        }
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'name_id' => 'nullable|string|max:255',
             'type' => 'nullable|in:technical,soft',
             'category' => 'required|string|max:100',
-            'proficiency' => 'required|integer|min:1|max:100',
+            'proficiency' => 'required|string|in:expert,advanced,intermediate,beginner',
             'description' => 'nullable|string',
             'description_id' => 'nullable|string',
             'icon' => 'nullable|string|max:100',

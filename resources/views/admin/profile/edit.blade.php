@@ -94,7 +94,20 @@
                 </div>
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5 font-semibold">Portrait Picture URL</label>
-                    <input type="text" name="avatar" value="{{ old('avatar', $profile->avatar) }}" placeholder="https://..." class="w-full px-3.5 py-2.5 rounded-lg bg-[#FAF9F6] border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                    <div class="flex items-start gap-4">
+                        @if($profile->avatar)
+                            <div class="w-16 h-16 rounded-xl border border-[#E8E5DC] overflow-hidden shrink-0 bg-[#FAF9F6]">
+                                <img src="{{ $profile->avatar }}" alt="Portrait preview" class="w-full h-full object-cover object-center" referrerpolicy="no-referrer">
+                            </div>
+                        @endif
+                        <div class="flex-1">
+                            <input type="text" name="avatar" value="{{ old('avatar', $profile->avatar) }}" placeholder="https://drive.google.com/file/d/... or https://..." class="w-full px-3.5 py-2.5 rounded-lg bg-[#FAF9F6] border border-[#D6D3D1] text-sm text-[#1C1917] focus:ring-1 focus:ring-[#1C1917] outline-none">
+                            <p class="text-xs text-[#78716C] font-mono mt-1.5 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm text-emerald-600">cloud_done</span>
+                                <span>Supports direct image URLs and <strong>Google Drive share links</strong> (ensure sharing is set to <em>"Anyone with the link can view"</em>).</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-mono uppercase tracking-wider text-[#78716C] mb-1.5 font-semibold">Availability Status *</label>
