@@ -87,26 +87,26 @@
             </div>
 
             <!-- Picture / Portrait Frame (5 cols) -->
-            <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center">
-                <div class="relative w-full max-w-sm">
+            <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center">
+                <div class="relative w-full max-w-md lg:max-w-lg">
                     <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border-2 border-[#D5D1C6] pointer-events-none"></div>
-                    <div class="relative rounded-2xl overflow-hidden bg-[#FFFFFF] p-2.5 border border-[#E8E5DC] shadow-md">
-                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-[#F4F2EB] relative group">
+                    <div class="relative rounded-2xl overflow-hidden bg-[#FFFFFF] p-3 border border-[#E8E5DC] shadow-md flex flex-col">
+                        <div class="w-full flex items-center justify-center rounded-xl overflow-hidden bg-[#F4F2EB] relative group min-h-[300px] max-h-[640px]">
                             <img 
                                 src="{{ $profile->avatar ?? 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80' }}" 
                                 alt="{{ $profile->name ?? 'Portrait' }}" 
-                                class="w-full h-full object-cover object-center filter grayscale contrast-[1.05] group-hover:grayscale-0 transition-all duration-700 ease-out"
+                                class="w-full h-auto max-h-[620px] object-contain transition-all duration-500 ease-out"
                                 loading="eager"
                                 referrerpolicy="no-referrer"
                             >
-                            <div class="absolute bottom-3 right-3 bg-[#1C1917]/90 text-[#FAF9F6] text-xs font-serif px-2.5 py-1 rounded-md backdrop-blur-xs tracking-wider border border-white/10">
+                            <div class="absolute bottom-3 right-3 bg-[#1C1917]/90 text-[#FAF9F6] text-xs font-serif px-2.5 py-1 rounded-md backdrop-blur-xs tracking-wider border border-white/10 shadow-xs">
                                 EST. {{ 2026 - ($profile->years_of_experience ?? 6) }}
                             </div>
                         </div>
 
                         <!-- Caption under picture -->
                         <div class="pt-3 pb-1 px-2 text-center border-t border-[#F4F2EB] mt-2">
-                            <p class="font-serif text-sm font-semibold text-[#1C1917] tracking-wide">
+                            <p class="font-serif text-base font-semibold text-[#1C1917] tracking-wide">
                                 {{ $profile->name ?? 'Alexander Vance' }}
                             </p>
                             <p class="text-xs text-[#78716C] font-mono mt-0.5">
