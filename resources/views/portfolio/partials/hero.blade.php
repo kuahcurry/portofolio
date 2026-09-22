@@ -90,12 +90,12 @@
             <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center">
                 <div class="relative w-full max-w-md lg:max-w-lg">
                     <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border-2 border-[#D5D1C6] pointer-events-none"></div>
-                    <div class="relative rounded-2xl overflow-hidden bg-[#FFFFFF] p-3 border border-[#E8E5DC] shadow-md flex flex-col">
-                        <div class="w-full flex items-center justify-center rounded-xl overflow-hidden bg-[#F4F2EB] relative group min-h-[300px] max-h-[640px]">
+                    <div class="relative rounded-2xl overflow-hidden bg-[#FFFFFF] p-3 border border-[#E8E5DC] shadow-md flex flex-col group cursor-pointer">
+                        <div class="w-full flex items-center justify-center rounded-xl overflow-hidden bg-[#F4F2EB] relative min-h-[300px] max-h-[640px]">
                             <img 
                                 src="{{ $profile->avatar ?? 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80' }}" 
                                 alt="{{ $profile->name ?? 'Portrait' }}" 
-                                class="w-full h-auto max-h-[620px] object-contain transition-all duration-500 ease-out"
+                                class="w-full h-auto max-h-[620px] object-contain filter grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:contrast-100 group-hover:scale-[1.02] transition-all duration-700 ease-out"
                                 loading="eager"
                                 referrerpolicy="no-referrer"
                             >
