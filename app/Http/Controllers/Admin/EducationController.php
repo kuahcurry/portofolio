@@ -13,6 +13,7 @@ class EducationController extends Controller
     public function index(): View
     {
         $education = Education::orderBy('sort_order')->latest('start_year')->get();
+
         return view('admin.education.index', compact('education'));
     }
 
@@ -41,14 +42,14 @@ class EducationController extends Controller
 
         $validated['sort_order'] = $validated['sort_order'] ?? 0;
 
-        if (!empty($validated['achievements'])) {
-            $validated['achievements'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['achievements'])))));
+        if (! empty($validated['achievements'])) {
+            $validated['achievements'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['achievements'])))));
         } else {
             $validated['achievements'] = [];
         }
 
-        if (!empty($validated['achievements_id'])) {
-            $validated['achievements_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['achievements_id'])))));
+        if (! empty($validated['achievements_id'])) {
+            $validated['achievements_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['achievements_id'])))));
         } else {
             $validated['achievements_id'] = [];
         }
@@ -85,11 +86,11 @@ class EducationController extends Controller
         $validated['sort_order'] = $validated['sort_order'] ?? 0;
 
         if (isset($validated['achievements'])) {
-            $validated['achievements'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['achievements'])))));
+            $validated['achievements'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['achievements'])))));
         }
 
         if (isset($validated['achievements_id'])) {
-            $validated['achievements_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['achievements_id'])))));
+            $validated['achievements_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['achievements_id'])))));
         }
 
         $education->update($validated);

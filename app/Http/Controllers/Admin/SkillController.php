@@ -13,6 +13,7 @@ class SkillController extends Controller
     public function index(): View
     {
         $skills = Skill::orderBy('type', 'desc')->orderBy('category')->orderBy('sort_order')->get();
+
         return view('admin.skills.index', compact('skills'));
     }
 

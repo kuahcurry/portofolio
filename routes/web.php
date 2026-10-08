@@ -9,8 +9,10 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SkillController;
+use App\Http\Controllers\Api\DocsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\SystemStatusController;
 use Illuminate\Support\Facades\Route;
 
 // -------------------------------------------------------------
@@ -62,9 +64,9 @@ $registerAdminRoutes = function (bool $named = true) {
     });
 };
 
-$baseDomain = env('APP_DOMAIN', parse_url(config('app.url', 'http://localhost'), PHP_URL_HOST) ?: 'localhost');
-$manageDomain = env('APP_MANAGE_DOMAIN', 'manage.' . $baseDomain);
-$useSubdomain = (bool) env('APP_SUBDOMAIN_ADMIN', false);
+$baseDomain = (string) config('app.admin_base_domain', 'localhost');
+$manageDomain = (string) config('app.admin_manage_domain', 'manage.'.$baseDomain);
+$useSubdomain = (bool) config('app.admin_use_subdomain', false);
 
 if ($useSubdomain) {
     Route::domain($manageDomain)->group(fn () => $registerAdminRoutes(true));
@@ -80,10 +82,19 @@ if ($useSubdomain) {
 Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+// Interactive API documentation & OpenAPI specification
+Route::get('/api/docs', [DocsController::class, 'index'])->name('api.docs');
+Route::get('/api/v1/openapi.json', [DocsController::class, 'openApiJson'])->name('api.openapi.json');
+
+// Public observability & service health dashboard
+Route::get('/status', [SystemStatusController::class, 'index'])->name('system.status');
+Route::get('/status/json', [SystemStatusController::class, 'json'])->name('system.status.json');
+
 // Language Switcher Route
 Route::get('/locale/{locale}', function (string $locale) {
     if (in_array($locale, ['en', 'id'])) {
         session(['locale' => $locale]);
     }
+
     return back();
 })->name('locale.switch');

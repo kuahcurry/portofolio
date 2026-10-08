@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\ContactMessage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -34,7 +33,7 @@ class ContactController extends Controller
             ]);
         }
 
-        return redirect()->to(url()->previous() . '#work-together')
+        return redirect()->to(url()->previous().'#work-together')
             ->with('success', $successMessage);
     }
 }

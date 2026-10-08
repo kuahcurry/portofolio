@@ -26,6 +26,8 @@
                 <a href="#skills" class="hover:text-white transition-colors">{{ __('portfolio.nav_skills') }}</a>
                 <a href="#contact" class="hover:text-white transition-colors">{{ __('portfolio.nav_contact') }}</a>
                 <a href="#work-together" class="hover:text-white transition-colors">{{ __('portfolio.nav_work_together') }}</a>
+                <a href="{{ route('api.docs') }}" class="hover:text-white transition-colors">API Docs</a>
+                <a href="{{ route('system.status') }}" class="hover:text-white transition-colors">Status</a>
             </div>
 
             <!-- Right: Return to top -->

@@ -13,6 +13,7 @@ class ExperienceController extends Controller
     public function index(): View
     {
         $experiences = Experience::orderBy('sort_order')->latest('start_date')->get();
+
         return view('admin.experiences.index', compact('experiences'));
     }
 
@@ -46,19 +47,19 @@ class ExperienceController extends Controller
         $validated['end_date'] = $validated['is_current'] ? 'Present' : ($validated['end_date'] ?? 'Present');
         $validated['sort_order'] = $validated['sort_order'] ?? 0;
 
-        if (!empty($validated['highlights'])) {
-            $validated['highlights'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['highlights'])))));
+        if (! empty($validated['highlights'])) {
+            $validated['highlights'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['highlights'])))));
         } else {
             $validated['highlights'] = [];
         }
 
-        if (!empty($validated['highlights_id'])) {
-            $validated['highlights_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['highlights_id'])))));
+        if (! empty($validated['highlights_id'])) {
+            $validated['highlights_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['highlights_id'])))));
         } else {
             $validated['highlights_id'] = [];
         }
 
-        if (!empty($validated['technologies'])) {
+        if (! empty($validated['technologies'])) {
             $validated['technologies'] = array_values(array_filter(array_map('trim', explode(',', $validated['technologies']))));
         } else {
             $validated['technologies'] = [];
@@ -101,11 +102,11 @@ class ExperienceController extends Controller
         $validated['sort_order'] = $validated['sort_order'] ?? 0;
 
         if (isset($validated['highlights'])) {
-            $validated['highlights'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['highlights'])))));
+            $validated['highlights'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['highlights'])))));
         }
 
         if (isset($validated['highlights_id'])) {
-            $validated['highlights_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", "", $validated['highlights_id'])))));
+            $validated['highlights_id'] = array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $validated['highlights_id'])))));
         }
 
         if (isset($validated['technologies'])) {

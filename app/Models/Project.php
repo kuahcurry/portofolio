@@ -37,9 +37,10 @@ class Project extends Model
     public function trans(string $field): mixed
     {
         $locale = app()->getLocale();
-        if ($locale === 'id' && !empty($this->{$field . '_id'})) {
-            return $this->{$field . '_id'};
+        if ($locale === 'id' && ! empty($this->{$field.'_id'})) {
+            return $this->{$field.'_id'};
         }
+
         return $this->{$field};
     }
 }

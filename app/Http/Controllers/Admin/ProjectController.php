@@ -14,6 +14,7 @@ class ProjectController extends Controller
     public function index(): View
     {
         $projects = Project::orderBy('sort_order')->latest('updated_at')->get();
+
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -50,14 +51,14 @@ class ProjectController extends Controller
             $original = $validated['slug'];
             $count = 1;
             while (Project::where('slug', $validated['slug'])->exists()) {
-                $validated['slug'] = "{$original}-" . $count++;
+                $validated['slug'] = "{$original}-".$count++;
             }
         }
 
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['sort_order'] = $validated['sort_order'] ?? 0;
 
-        if (!empty($validated['technologies'])) {
+        if (! empty($validated['technologies'])) {
             $validated['technologies'] = array_values(array_filter(array_map('trim', explode(',', $validated['technologies']))));
         } else {
             $validated['technologies'] = [];
@@ -79,7 +80,7 @@ class ProjectController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'title_id' => 'nullable|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:projects,slug,' . $project->id,
+            'slug' => 'nullable|string|max:255|unique:projects,slug,'.$project->id,
             'tagline' => 'nullable|string|max:255',
             'tagline_id' => 'nullable|string|max:255',
             'category' => 'required|string|max:255',

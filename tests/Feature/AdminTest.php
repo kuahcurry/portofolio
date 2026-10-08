@@ -3,14 +3,12 @@
 namespace Tests\Feature;
 
 use App\Models\ContactMessage;
-use App\Models\Education;
-use App\Models\Experience;
 use App\Models\Profile;
 use App\Models\Project;
-use App\Models\Skill;
 use App\Models\User;
 use Database\Seeders\PortfolioSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class AdminTest extends TestCase
@@ -113,7 +111,7 @@ class AdminTest extends TestCase
         $this->admin->refresh();
         $this->assertEquals('New Admin Name', $this->admin->name);
         $this->assertEquals('newadmin@domain.com', $this->admin->email);
-        $this->assertTrue(\Illuminate\Support\Facades\Hash::check('newpassword123', $this->admin->password));
+        $this->assertTrue(Hash::check('newpassword123', $this->admin->password));
     }
 
     public function test_admin_can_create_project(): void
@@ -222,7 +220,7 @@ class AdminTest extends TestCase
         ]);
 
         $response->assertRedirect(route('admin.profile.edit'));
-        $profile = \App\Models\Profile::first();
+        $profile = Profile::first();
         $this->assertEquals('https://lh3.googleusercontent.com/d/1XyZ_987abc123DEF', $profile->avatar);
     }
 

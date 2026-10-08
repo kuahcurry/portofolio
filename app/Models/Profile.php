@@ -37,9 +37,10 @@ class Profile extends Model
     public function trans(string $field): mixed
     {
         $locale = app()->getLocale();
-        if ($locale === 'id' && !empty($this->{$field . '_id'})) {
-            return $this->{$field . '_id'};
+        if ($locale === 'id' && ! empty($this->{$field.'_id'})) {
+            return $this->{$field.'_id'};
         }
+
         return $this->{$field};
     }
 
@@ -63,6 +64,7 @@ class Profile extends Model
         // - https://lh3.googleusercontent.com/d/{FILE_ID}
         if (preg_match('/(?:drive\.google\.com\/(?:file\/d\/|open\?(?:.*&)?id=|uc\?(?:.*&)?id=)|lh3\.googleusercontent\.com\/d\/)([a-zA-Z0-9_-]+)/i', $trimmed, $matches)) {
             $fileId = $matches[1];
+
             return "https://lh3.googleusercontent.com/d/{$fileId}";
         }
 

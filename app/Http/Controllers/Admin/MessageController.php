@@ -12,12 +12,13 @@ class MessageController extends Controller
     public function index(): View
     {
         $messages = ContactMessage::latest()->paginate(15);
+
         return view('admin.messages.index', compact('messages'));
     }
 
     public function show(ContactMessage $message): View
     {
-        if (!$message->is_read) {
+        if (! $message->is_read) {
             $message->update(['is_read' => true]);
         }
 

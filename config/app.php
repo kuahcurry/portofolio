@@ -123,4 +123,22 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Console Routing
+    |--------------------------------------------------------------------------
+    |
+    | These values control whether the management console is served from a
+    | dedicated subdomain (e.g. manage.example.com) in addition to the
+    | "/manage" path prefix. Keep env() calls inside config so the
+    | configuration can be safely cached for production.
+    |
+    */
+
+    'admin_base_domain' => $adminBaseDomain = env('APP_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST) ?: 'localhost'),
+
+    'admin_manage_domain' => env('APP_MANAGE_DOMAIN', 'manage.'.$adminBaseDomain),
+
+    'admin_use_subdomain' => (bool) env('APP_SUBDOMAIN_ADMIN', false),
+
 ];

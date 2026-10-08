@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Profile;
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Profile;
 use App\Models\Project;
 use App\Models\Skill;
 use App\Models\User;
@@ -237,99 +237,99 @@ class PortfolioSeeder extends Seeder
         // Keep existing user projects intact; only seed sample projects if none exist
         if (Project::count() === 0) {
             Project::create([
-            'title' => 'Aura Task Orchestrator',
-            'title_id' => 'Aura Task Orchestrator',
-            'slug' => 'aura-task-orchestrator',
-            'tagline' => 'High-concurrency distributed job pipeline & workflow scheduler',
-            'tagline_id' => 'Platform orkestrator pipeline tugas terdistribusi & penjadwal alur kerja berkecepatan tinggi',
-            'description' => 'A robust, self-hosted job orchestrator built with Laravel and Redis. Features real-time worker telemetry, intelligent rate-limiting, dead-letter queue analysis, and interactive visual DAG pipelines.',
-            'description_id' => 'Solusi orkestrasi tugas tingkat enterprise yang dibangun di atas Laravel dan Redis. Menghadirkan pemantauan telemetri worker secara real-time, mekanisme pembatasan laju pintar, analisis antrean bermasalah (dead-letter queue), dan visualisasi alur DAG yang interaktif.',
-            'thumbnail' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-            'category' => 'Distributed Systems & Backend',
-            'category_id' => 'Sistem Terdistribusi & Backend',
-            'github_url' => 'https://github.com/alexandervance-dev/aura-orchestrator',
-            'website_url' => 'https://aura-orchestrator.demo.dev',
-            'certificate_url' => 'https://credentials.example.com/projects/aura-architecture-award',
-            'technologies' => ['Laravel', 'PHP 8.4', 'Redis', 'Tailwind CSS', 'Material Web', 'WebSockets', 'Docker'],
-            'is_featured' => true,
-            'sort_order' => 1,
-        ]);
+                'title' => 'Aura Task Orchestrator',
+                'title_id' => 'Aura Task Orchestrator',
+                'slug' => 'aura-task-orchestrator',
+                'tagline' => 'High-concurrency distributed job pipeline & workflow scheduler',
+                'tagline_id' => 'Platform orkestrator pipeline tugas terdistribusi & penjadwal alur kerja berkecepatan tinggi',
+                'description' => 'A robust, self-hosted job orchestrator built with Laravel and Redis. Features real-time worker telemetry, intelligent rate-limiting, dead-letter queue analysis, and interactive visual DAG pipelines.',
+                'description_id' => 'Solusi orkestrasi tugas tingkat enterprise yang dibangun di atas Laravel dan Redis. Menghadirkan pemantauan telemetri worker secara real-time, mekanisme pembatasan laju pintar, analisis antrean bermasalah (dead-letter queue), dan visualisasi alur DAG yang interaktif.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+                'category' => 'Distributed Systems & Backend',
+                'category_id' => 'Sistem Terdistribusi & Backend',
+                'github_url' => 'https://github.com/alexandervance-dev/aura-orchestrator',
+                'website_url' => 'https://aura-orchestrator.demo.dev',
+                'certificate_url' => 'https://credentials.example.com/projects/aura-architecture-award',
+                'technologies' => ['Laravel', 'PHP 8.4', 'Redis', 'Tailwind CSS', 'Material Web', 'WebSockets', 'Docker'],
+                'is_featured' => true,
+                'sort_order' => 1,
+            ]);
 
-        Project::create([
-            'title' => 'Chronicle Docs Engine',
-            'title_id' => 'Chronicle Docs Engine',
-            'slug' => 'chronicle-docs-engine',
-            'tagline' => 'Classical typographic markdown publishing & documentation system',
-            'tagline_id' => 'Platform dokumentasi teknis & publikasi markdown berbasis tipografi editorial klasik',
-            'description' => 'A minimalist documentation platform designed around classical editorial typography and lightning-fast full-text search. Supports algorithmic dark/light themes, offline PWA caching, and automated API spec parsing.',
-            'description_id' => 'Sistem dokumentasi minimalis yang mengedepankan keterbacaan tipografi editorial dan kapabilitas pencarian teks instan. Dilengkapi integrasi tema gelap/terang otomatis, persistensi offline PWA, dan penguraian spesifikasi OpenAPI.',
-            'thumbnail' => 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80',
-            'category' => 'Developer Tools & UI',
-            'category_id' => 'Perangkat Pengembang & UI',
-            'github_url' => 'https://github.com/alexandervance-dev/chronicle-docs',
-            'website_url' => 'https://chronicle.demo.dev',
-            'certificate_url' => 'https://credentials.example.com/projects/chronicle-design-excellence',
-            'technologies' => ['Laravel', 'Tailwind CSS', 'Material Web M3', 'SQLite', 'Alpine.js'],
-            'is_featured' => true,
-            'sort_order' => 2,
-        ]);
+            Project::create([
+                'title' => 'Chronicle Docs Engine',
+                'title_id' => 'Chronicle Docs Engine',
+                'slug' => 'chronicle-docs-engine',
+                'tagline' => 'Classical typographic markdown publishing & documentation system',
+                'tagline_id' => 'Platform dokumentasi teknis & publikasi markdown berbasis tipografi editorial klasik',
+                'description' => 'A minimalist documentation platform designed around classical editorial typography and lightning-fast full-text search. Supports algorithmic dark/light themes, offline PWA caching, and automated API spec parsing.',
+                'description_id' => 'Sistem dokumentasi minimalis yang mengedepankan keterbacaan tipografi editorial dan kapabilitas pencarian teks instan. Dilengkapi integrasi tema gelap/terang otomatis, persistensi offline PWA, dan penguraian spesifikasi OpenAPI.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80',
+                'category' => 'Developer Tools & UI',
+                'category_id' => 'Perangkat Pengembang & UI',
+                'github_url' => 'https://github.com/alexandervance-dev/chronicle-docs',
+                'website_url' => 'https://chronicle.demo.dev',
+                'certificate_url' => 'https://credentials.example.com/projects/chronicle-design-excellence',
+                'technologies' => ['Laravel', 'Tailwind CSS', 'Material Web M3', 'SQLite', 'Alpine.js'],
+                'is_featured' => true,
+                'sort_order' => 2,
+            ]);
 
-        Project::create([
-            'title' => 'Veritas Metrics & Analytics',
-            'title_id' => 'Veritas Metrics & Analytics',
-            'slug' => 'veritas-analytics',
-            'tagline' => 'Cookieless, privacy-first web telemetry & event analytics platform',
-            'tagline_id' => 'Platform analitik event & telemetri web tanpa cookie yang mengutamakan privasi pengguna',
-            'description' => 'An ethical, lightweight alternative to bloated tracking suites. Collects privacy-preserving event data, computes real-time retention matrices, and renders beautiful Material Design 3 interactive charts.',
-            'description_id' => 'Infrastruktur analitik web mandiri tanpa pelacakan cookie invasif. Mengumpulkan data telemetri secara anonim, menghitung metrik retensi secara real-time, serta menyajikan visualisasi data interaktif berbasis Material Design 3.',
-            'thumbnail' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-            'category' => 'Full-Stack Web Application',
-            'category_id' => 'Aplikasi Web Terintegrasi',
-            'github_url' => 'https://github.com/alexandervance-dev/veritas-analytics',
-            'website_url' => 'https://veritas-analytics.demo.dev',
-            'certificate_url' => null,
-            'technologies' => ['Laravel', 'PostgreSQL', 'Tailwind CSS', 'Material Web', 'Chart.js', 'REST API'],
-            'is_featured' => true,
-            'sort_order' => 3,
-        ]);
+            Project::create([
+                'title' => 'Veritas Metrics & Analytics',
+                'title_id' => 'Veritas Metrics & Analytics',
+                'slug' => 'veritas-analytics',
+                'tagline' => 'Cookieless, privacy-first web telemetry & event analytics platform',
+                'tagline_id' => 'Platform analitik event & telemetri web tanpa cookie yang mengutamakan privasi pengguna',
+                'description' => 'An ethical, lightweight alternative to bloated tracking suites. Collects privacy-preserving event data, computes real-time retention matrices, and renders beautiful Material Design 3 interactive charts.',
+                'description_id' => 'Infrastruktur analitik web mandiri tanpa pelacakan cookie invasif. Mengumpulkan data telemetri secara anonim, menghitung metrik retensi secara real-time, serta menyajikan visualisasi data interaktif berbasis Material Design 3.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+                'category' => 'Full-Stack Web Application',
+                'category_id' => 'Aplikasi Web Terintegrasi',
+                'github_url' => 'https://github.com/alexandervance-dev/veritas-analytics',
+                'website_url' => 'https://veritas-analytics.demo.dev',
+                'certificate_url' => null,
+                'technologies' => ['Laravel', 'PostgreSQL', 'Tailwind CSS', 'Material Web', 'Chart.js', 'REST API'],
+                'is_featured' => true,
+                'sort_order' => 3,
+            ]);
 
-        Project::create([
-            'title' => 'Symphony Modular Commerce',
-            'title_id' => 'Symphony Modular Commerce',
-            'slug' => 'symphony-modular-commerce',
-            'tagline' => 'Headless e-commerce core with atomic inventory locks and payment orchestration',
-            'tagline_id' => 'Infrastruktur e-commerce headless dengan penguncian inventaris atomik & integrasi pembayaran',
-            'description' => 'High-reliability digital commerce backend handling multi-currency orders, automatic invoice generation, Stripe/PayPal payment routing, and real-time stock sync.',
-            'description_id' => 'Backend perdagangan digital keandalan tinggi untuk pengelolaan transaksi multi-mata uang, penerbitan faktur otomatis, perutean gerbang pembayaran Stripe/PayPal, dan sinkronisasi stok secara simultan.',
-            'thumbnail' => 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80',
-            'category' => 'E-Commerce & FinTech',
-            'category_id' => 'E-Commerce & FinTech',
-            'github_url' => 'https://github.com/alexandervance-dev/symphony-commerce',
-            'website_url' => 'https://symphony-store.demo.dev',
-            'certificate_url' => null,
-            'technologies' => ['Laravel', 'Tailwind CSS', 'MySQL', 'Stripe API', 'Material Web'],
-            'is_featured' => false,
-            'sort_order' => 4,
-        ]);
+            Project::create([
+                'title' => 'Symphony Modular Commerce',
+                'title_id' => 'Symphony Modular Commerce',
+                'slug' => 'symphony-modular-commerce',
+                'tagline' => 'Headless e-commerce core with atomic inventory locks and payment orchestration',
+                'tagline_id' => 'Infrastruktur e-commerce headless dengan penguncian inventaris atomik & integrasi pembayaran',
+                'description' => 'High-reliability digital commerce backend handling multi-currency orders, automatic invoice generation, Stripe/PayPal payment routing, and real-time stock sync.',
+                'description_id' => 'Backend perdagangan digital keandalan tinggi untuk pengelolaan transaksi multi-mata uang, penerbitan faktur otomatis, perutean gerbang pembayaran Stripe/PayPal, dan sinkronisasi stok secara simultan.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80',
+                'category' => 'E-Commerce & FinTech',
+                'category_id' => 'E-Commerce & FinTech',
+                'github_url' => 'https://github.com/alexandervance-dev/symphony-commerce',
+                'website_url' => 'https://symphony-store.demo.dev',
+                'certificate_url' => null,
+                'technologies' => ['Laravel', 'Tailwind CSS', 'MySQL', 'Stripe API', 'Material Web'],
+                'is_featured' => false,
+                'sort_order' => 4,
+            ]);
 
-        Project::create([
-            'title' => 'Helios API Profiler',
-            'title_id' => 'Helios API Profiler',
-            'slug' => 'helios-api-profiler',
-            'tagline' => 'Real-time database query bottleneck detector and payload analyzer',
-            'tagline_id' => 'Alat diagnostik kinerja basis data & penganalisis bottleneck kueri real-time',
-            'description' => 'A developer companion tool that monitors SQL statement counts, detects N+1 execution flaws, inspects memory allocations, and provides actionable code suggestions.',
-            'description_id' => 'Perangkat pemantauan komprehensif bagi pengembang untuk mendeteksi bottleneck kueri SQL, mengatasi anomali eksekusi N+1, menganalisis profil alokasi memori, serta menyajikan rekomendasi optimasi kode secara terukur.',
-            'thumbnail' => 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
-            'category' => 'Developer Productivity',
-            'category_id' => 'Produktivitas Rekayasa',
-            'github_url' => 'https://github.com/alexandervance-dev/helios-profiler',
-            'website_url' => 'https://helios-profiler.demo.dev',
-            'certificate_url' => null,
-            'technologies' => ['PHP 8.4', 'Laravel', 'SQLite', 'Tailwind CSS'],
-            'is_featured' => false,
-            'sort_order' => 5,
-        ]);
+            Project::create([
+                'title' => 'Helios API Profiler',
+                'title_id' => 'Helios API Profiler',
+                'slug' => 'helios-api-profiler',
+                'tagline' => 'Real-time database query bottleneck detector and payload analyzer',
+                'tagline_id' => 'Alat diagnostik kinerja basis data & penganalisis bottleneck kueri real-time',
+                'description' => 'A developer companion tool that monitors SQL statement counts, detects N+1 execution flaws, inspects memory allocations, and provides actionable code suggestions.',
+                'description_id' => 'Perangkat pemantauan komprehensif bagi pengembang untuk mendeteksi bottleneck kueri SQL, mengatasi anomali eksekusi N+1, menganalisis profil alokasi memori, serta menyajikan rekomendasi optimasi kode secara terukur.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+                'category' => 'Developer Productivity',
+                'category_id' => 'Produktivitas Rekayasa',
+                'github_url' => 'https://github.com/alexandervance-dev/helios-profiler',
+                'website_url' => 'https://helios-profiler.demo.dev',
+                'certificate_url' => null,
+                'technologies' => ['PHP 8.4', 'Laravel', 'SQLite', 'Tailwind CSS'],
+                'is_featured' => false,
+                'sort_order' => 5,
+            ]);
         }
 
         // 5. Skills: Technical Skills & Soft Leadership Skills

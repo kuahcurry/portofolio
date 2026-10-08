@@ -51,9 +51,10 @@ class Skill extends Model
     public function trans(string $field): mixed
     {
         $locale = app()->getLocale();
-        if ($locale === 'id' && !empty($this->{$field . '_id'})) {
-            return $this->{$field . '_id'};
+        if ($locale === 'id' && ! empty($this->{$field.'_id'})) {
+            return $this->{$field.'_id'};
         }
+
         return $this->{$field};
     }
 
@@ -70,9 +71,16 @@ class Skill extends Model
         // Backward compatibility for legacy numeric percentage values
         if (is_numeric($val)) {
             $num = (int) $val;
-            if ($num >= 90) return 'expert';
-            if ($num >= 80) return 'advanced';
-            if ($num >= 60) return 'intermediate';
+            if ($num >= 90) {
+                return 'expert';
+            }
+            if ($num >= 80) {
+                return 'advanced';
+            }
+            if ($num >= 60) {
+                return 'intermediate';
+            }
+
             return 'beginner';
         }
 
@@ -89,6 +97,7 @@ class Skill extends Model
         if ($locale === 'id') {
             return self::LEVELS[$key]['label_id'] ?? 'Menengah';
         }
+
         return self::LEVELS[$key]['label'] ?? 'Intermediate';
     }
 
@@ -98,6 +107,7 @@ class Skill extends Model
     public function getLevelBadgeClassAttribute(): string
     {
         $key = $this->level_key;
+
         return self::LEVELS[$key]['badge'] ?? 'bg-stone-100 text-stone-700 border-stone-200';
     }
 
@@ -107,6 +117,7 @@ class Skill extends Model
     public function getLevelDotClassAttribute(): string
     {
         $key = $this->level_key;
+
         return self::LEVELS[$key]['dot'] ?? 'bg-stone-400';
     }
 }
