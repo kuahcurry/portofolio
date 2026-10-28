@@ -39,8 +39,8 @@ class ExampleTest extends TestCase
         $response->assertSee('PT. Farma Global Teknologi');
 
         // 4. Projects (including repo and demo links)
-        $response->assertSee('Aura Task Orchestrator');
-        $response->assertSee('Chronicle Docs Engine');
+        $response->assertSee('Hospital Information &amp; Admin Management System', false);
+        $response->assertSee('SiKOMPLIT (Medical Staff Credentialing Management Platform)');
         $response->assertSee('Source Repo');
         $response->assertSee('Live Demo');
 
