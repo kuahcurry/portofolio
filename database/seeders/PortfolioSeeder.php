@@ -37,15 +37,14 @@ class PortfolioSeeder extends Seeder
                 'short_bio' => 'Backend & Cloud Specialist | Laravel, GCP, PHP, MySQL, REST APIs, Docker, and Web Systems.',
                 'avatar' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
                 'location' => 'Surabaya & Yogyakarta, Indonesia',
-                'email' => 'aqefhakimi32@gmail.com',
-                'phone' => '+62 855-1655-7899',
+                'email' => 'hakimiaqef@gmail.com',
+                'phone' => '+62 819-3277-7734',
                 'github_url' => 'https://github.com/kuahcurry',
-                'linkedin_url' => 'https://www.linkedin.com/in/aqief-hakimi-37ab5b27a',
-                'twitter_url' => null,
+                'linkedin_url' => 'https://www.linkedin.com/in/aqief-hakimi',
                 'website_url' => 'https://hakimi.work',
                 'resume_url' => '#',
-                'availability_status' => 'Available for Full-time Roles & Engineering Collaborations',
-                'years_of_experience' => 2,
+                'availability_status' => '#OpentoWork',
+                'years_of_experience' => 1,
             ]
         );
 
